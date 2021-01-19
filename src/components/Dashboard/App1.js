@@ -6,7 +6,7 @@ import SearchBar from "../Dashboard/SearchBar";
 import { Container, Header } from "semantic-ui-react";
 import '../../App.css';
 import '../../index.css';
-import SignUp from "../SignUp/SignUp";
+// import SignUp from "../SignUp/SignUp";
 import axios from 'axios';
 
 class App extends React.Component {
