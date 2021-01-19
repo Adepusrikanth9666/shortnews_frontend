@@ -45,10 +45,11 @@ class App extends React.Component {
       headers: { 'x-auth-token': login.token }
     })
       .then((response) => {
+        const response =  getBitcoinArticles();
+        this.setState({ articles: response.articles });
         console.log(response);
         try {
-          const response =  getBitcoinArticles();
-          this.setState({ articles: response.articles });
+         
         } catch (error) {
           this.setState({ apiError: "Could not find any articles" });
         }
