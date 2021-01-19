@@ -10,13 +10,19 @@ import '../../index.css';
 import axios from 'axios';
 
 class App extends React.Component {
-  state = {
-    articles: [],
-    searchTopic: "Bitcoin",
-    totalResults: "",
-    loading: false,
-    apiError: ""
-  };
+  constructor(){
+
+    super();
+    this.state = {
+      articles: [],
+      searchTopic: "Bitcoin",
+      totalResults: "",
+      loading: false,
+      apiError: ""
+    
+    };
+  }
+  
 
   searchForTopic = async topic => {
     if(topic.length===0){
@@ -39,16 +45,17 @@ class App extends React.Component {
   };
    componentDidMount () {
     if (!window.localStorage.getItem('login')) { this.props.history.push('/') }
+    const response =  getBitcoinArticles();
+    this.setState({ articles: response.articles });
     const login = JSON.parse(window.localStorage.getItem('login'))
     console.log(login.user.id)
     axios.get('http://localhost:7000/users/', {
       headers: { 'x-auth-token': login.token }
     })
       .then((response) => {
-        const response =  getBitcoinArticles();
-        this.setState({ articles: response.articles });
         console.log(response);
         try {
+          console.log(response);
          
         } catch (error) {
           this.setState({ apiError: "Could not find any articles" });
@@ -93,24 +100,16 @@ class App extends React.Component {
           Search for a topic
         </Header>
         <SearchBar searchForTopic={this.searchForTopic} />
-        {/* <p style={{ textAlign: "center" }}>
-          Powered by <a href="https://newsapi.org/">NewsAPI.org</a>
-        </p> */}
+        
         {loading && (
           <p style={{ textAlign: "center" }}>Searching for articles...</p>
         )}
-        {articles.length > 0 ? (
-          <Header as="h2" style={{ textAlign: "center", margin: 20,color: "blue" }}>
+        {articles && (
+          <Header as="h4" style={{ textAlign: "center", margin: 20 }}>
             Found {totalResults} articles on "{searchTopic}"
-            
-          </Header>
-        ):(
-          <Header as="h2" style={{ textAlign: "center", margin: 20,color: "blue" }}>
-           Articles Not found 
-            
           </Header>
         )}
-        {articles.length >0 && <ArticleList articles={articles} />}
+        {articles  && <ArticleList articles={articles} />}
         {apiError && <p>Could not fetch any articles. Please try again.</p>}
         
       </Container>
