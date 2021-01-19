@@ -1,5 +1,6 @@
 .form-field {
     margin: 10px 0;
+    
   }
   
 #sign-in {
@@ -9,4 +10,42 @@ height: 100vh;
 width: 100%;
 justify-content: center;
 align-items: center;
+margin-top: -50px;
+
+}
+h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child {
+  margin-bottom: 0;
+  margin-top: 15px;
+}
+
+h3{
+  color:red;
+}
+.right-adjust{
+  margin-left: 20px;
+}
+
+.form-field1{
+
+  display: flex;
+    /* flex-direction: column; */
+    /* margin-right: 200px; */
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+
+.transbox {
+  margin: 30px;
+  background-color: #ffffffd0;
+  border-radius: 5%;
+  opacity: 0.785;
+  height: 50%;
+  width: 30%;
+}
+
+input[type=email], input[type=password], input[type=search], input[type=text] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 300px;
+  font-size: large;
 }

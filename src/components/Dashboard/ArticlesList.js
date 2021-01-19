@@ -16,7 +16,7 @@ const ArticleItem = props => {
           }}
         >
           <Header as="h3">{article.title}</Header>
-          <List.Description style={{ margin: "20px 0" }}>
+          <List.Description style={{ margin: "20px 0" ,color:"black",fontSize:"15px"}}>
             {article.description}
           </List.Description>
           <List bulleted horizontal>
@@ -36,11 +36,15 @@ const ArticleItem = props => {
 
 const ArticleList = props => {
   return (
-    <List divided style={{ maxWidth: 900, margin: "0 auto" }}>
+    <div className="transbox">
+      <List divided style={{ maxWidth: 900, margin: "0 auto" }}>
       {props.articles.map((article, index) => (
         <ArticleItem article={article} key={article.title + index} />
       ))}
     </List>
+
+    </div>
+    
   );
 };
 

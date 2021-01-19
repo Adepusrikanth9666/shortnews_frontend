@@ -12,14 +12,13 @@ body {
  
   
 }
+html, body {
+  height: 100%;
+    margin: 0;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-.footer{
-  height :30%;
-  width: 100%;
-  color:red;
-}

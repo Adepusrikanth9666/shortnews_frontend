@@ -1,13 +1,25 @@
 .App {
   text-align: center;
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTwwr8Bg6X7UbrsgMytxIa7iFXX_gtOQYQ0Q&usqp=CAU');
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
+  /* background-image: url('../src/projectlogo2.png');
+  background-repeat: no-repeat; */
+  /* -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: cover;
+  height: cover; */
 
+}
+.App {
+  background: url(https://previews.123rf.com/images/nmarques74/nmarques741712/nmarques74171200021/91419155-colorful-world-map-illustration-on-a-blue-blurry-backdrop-.jpg) no-repeat center center fixed;
+background-size: cover; /* The image used */
+
+/* Full height */
+height: 100%; 
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
 }
 
 
@@ -55,4 +67,13 @@
 
 .copyRight{
   margin:20px;
+}
+
+.transbox {
+  margin: 30px;
+  background-color: #ffffffd0;
+  border-radius: 1%;
+  opacity: 0.885;
+  height: 50%;
+  width: 90%;
 }

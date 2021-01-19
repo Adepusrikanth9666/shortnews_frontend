@@ -1,6 +1,10 @@
 import React,{Component} from "react";
 import axios from 'axios';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 import '../SignUp/Signup.css';
+
+
 
 export default class SignUp extends Component {
 
@@ -8,15 +12,15 @@ export default class SignUp extends Component {
 
         super(props);
 
-        this.state={
+        this.state= {
             email:"",
             password:"",
-            confirmPassword:""
+            confirmPassword:"",
+            message:""
         }
         this.handleChange =this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.validate = this.validate.bind(this);
-
 
     }
     handleChange(e){
@@ -51,49 +55,81 @@ export default class SignUp extends Component {
                 email,
                 password
             })
-            .then(function(response){
-                console.log(response);
+            .then((response)=>{
+                this.props.history.push('/dashboard');
+                console.log(response+"register");
 
             })
-            .catch(function(error){
-                console.log(error);
+            .catch((error)=>{
+                if(error.response.status===400){
+
+                    this.setState({message:"User already exist"})
+                
+                    console.log(error.message);
+                    console.log(this.state.message);
+
+                }
+               
             })
             console.log("valid it is signedup")
         }
     }
-
     
-
     render(){
+        var style = {
+            backgroundColor: "#F8F8F8",
+            borderTop: "1px solid #E7E7E7",
+            textAlign: "center",
+            padding: "20px",
+            position: "fixed",
+            left: "0",
+            bottom: "0",
+            height: "130px",
+            width: "100%",
+        };
 
-        const {email,password,confirmPassword} = this.props;
+        const {email,password,confirmPassword,message} = this.state;
 
         return(
 
+            <>
+        
             <div id="sign-up">
-                <div><h1>Sign Up</h1></div>
+                <div><h3>{message}</h3></div>
+                <div><h1>Sign Up </h1></div>
                 <div className="form-field">
-                    <div>Email :</div>
-                    <input type="text" name="email" value={email} onChange={this.handleChange} />
+                    <div>Email* :</div>
+                    <TextField id="outlined-basic" label="Email" variant="outlined" type="text" name="email" value={email} onChange={this.handleChange} />
 
                 </div>
                 <div className="form-field">
-                    <div>Password :</div>
-                    <input type="password" name="password" value={password} onChange={this.handleChange} />
-
-
-                </div>
-                <div className="form-field">
-                    <div>Confirm Password :</div>
-                    <input type="password" name="confirmPassword" value={confirmPassword} onChange={this.handleChange} />
+                    <div>Password* :</div>
+                    <TextField id="outlined-basic" label="Password" variant="outlined"  type="password" name="password" value={password} onChange={this.handleChange} />
 
 
                 </div>
                 <div className="form-field">
-                    <button onClick={()=>this.props.history.push('/')} className="righr-adjust">Sign In</button>
-                    <button onClick={this.handleSubmit}>Submit</button>
+                    <div>Confirm Password* :</div>
+                    <TextField id="outlined-basic" label="Confirm password" variant="outlined" type="password" name="confirmPassword" value={confirmPassword} onChange={this.handleChange} />
+
+
                 </div>
+                <div className="form-field1">
+                    <div className='right-adjust' style={{marginRight:20}}><Button variant="outlined" color="primary" onClick={this.handleSubmit} onClick={() => this.props.history.push('/')} >Sign In</Button></div>
+                    <div><Button variant="outlined" color="primary" onClick={this.handleSubmit}>Submit</Button></div>
+                </div>
+                <div className="footer1" style={style}>
+                    <div className="copyRight">&copy; Copy right 2021 - Short News </div>
+                    <div className="createdBy"> Created By: Adepu Srikanth</div>
+                    <div className="follow"> follow us : <a href="https://www.linkedin.com/in/srikanth-adepu-14318617b/" >LinkedIn-SrikanthAdepu</a> </div>
+                </div>
+               
             </div>
+
+        
+            </>
+
+
         );
     }
 
