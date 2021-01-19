@@ -1,6 +1,16 @@
 .App {
   text-align: center;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTwwr8Bg6X7UbrsgMytxIa7iFXX_gtOQYQ0Q&usqp=CAU');
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: cover;
+
 }
+
+
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +45,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.footer{
+  height: 30%;
+  width:100%
+
+}
+
+.copyRight{
+  margin:20px;
 }
