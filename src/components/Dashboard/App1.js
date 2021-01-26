@@ -14,6 +14,7 @@ import '../../App.css';
 import '../../index.css';
 // import SignUp from "../SignUp/SignUp";
 import axios from 'axios';
+import Logo from "../Logo/Logo";
 
 class App extends React.Component {
   constructor(){
@@ -33,7 +34,9 @@ class App extends React.Component {
   searchForTopic = async topic => {
     if(topic.length===0){
 
-      this.setState({searchTopic: "Article not Found"});
+      // this.setState({articles: "bitcoin"});
+      window.alert("please enter the search bar")
+      return;
 
     }
     try {
@@ -109,6 +112,7 @@ class App extends React.Component {
         
      
       <Container >
+        <Logo />
         
         <Header as="h1" style={{ textAlign: "center", paddingTop: 50}}>
           Search for a topic
@@ -116,11 +120,11 @@ class App extends React.Component {
         <SearchBar searchForTopic={this.searchForTopic} />
         
         {loading && (
-          <p style={{ textAlign: "center" }}>Searching for articles...</p>
+          <p style={{ textAlign: "center"  }}>Searching for articles...</p>
         )}
         {articles && (
           <Header as="h4" style={{ textAlign: "center", margin: 20 }}>
-            Found {totalResults} articles on "{searchTopic}"
+            Found articles on "{searchTopic}"
           </Header>
         )}
         {articles  && <ArticleList articles={articles} />}
@@ -132,9 +136,9 @@ class App extends React.Component {
                 
                <div className="copyRight">&copy; Copy right 2021 - Short News </div>
                <div className="createdBy"> Created By: Adepu Srikanth</div>
-              <div className="follow"> follow us : <a href="https://www.linkedin.com/in/srikanth-adepu-14318617b/" > <IconButton /> LinkedInIcon-SrikanthAdepu</a> </div>
+              <div className="follow"> follow us : <a href="https://www.linkedin.com/in/srikanth-adepu-14318617b/" > <IconButton  /> LinkedInIcon-SrikanthAdepu</a> </div>
             </div>
-    </div>
+      </div>
       </>
       
     );

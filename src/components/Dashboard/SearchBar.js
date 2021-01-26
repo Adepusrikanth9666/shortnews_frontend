@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Form } from "semantic-ui-react";
+import '../Logo/Logo.css';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class SearchBar extends React.Component {
               name="topic"
               value={this.state.searchTopic}
               onChange={this.handleChange}
+              className ="search"
             />
             <Button type="submit" color="green">
               Search

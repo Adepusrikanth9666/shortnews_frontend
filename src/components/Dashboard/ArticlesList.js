@@ -36,7 +36,7 @@ const ArticleItem = props => {
 
 const ArticleList = props => {
   return (
-    <div className="transbox">
+    <div className="transbox1">
       <List divided style={{ maxWidth: 900, margin: "0 auto" }}>
       {props.articles.map((article, index) => (
         <ArticleItem article={article} key={article.title + index} />
