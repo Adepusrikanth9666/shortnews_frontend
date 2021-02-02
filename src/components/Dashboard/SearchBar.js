@@ -19,7 +19,7 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div style={{ display: "flex", justifyContent: "center" , margin: 50}}>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
             <Form.Input

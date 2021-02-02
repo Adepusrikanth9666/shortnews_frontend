@@ -22,15 +22,11 @@ h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child {
 h3{
   color:red;
 }
- /* .right-adjust{
-   margin-left: 20px; 
-}  */
+
 
 .form-field1{
 
   display: flex;
-    /* flex-direction: column; */
-    /* margin-right: 200px; */
     justify-content: space-evenly;
     margin-top: 70px;
 }

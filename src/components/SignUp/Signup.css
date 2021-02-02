@@ -14,6 +14,22 @@
     margin-top: -50px;
     
 }
+.transbox {
+    margin: 30px;
+    background-color: #ffffffd0;
+    border-radius: 4%;
+    opacity: 0.785;
+    height: 60%;
+    width: 30%;
+  }
+
 h3{
     color:red;
 }
+
+.form-field12{
+
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+  }

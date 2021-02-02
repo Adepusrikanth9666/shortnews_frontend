@@ -1,19 +1,14 @@
 import React from "react";
-import {getBitcoinArticles} from '../../api'
+import { NEWS_API_KEY } from "../../config";
 import { getArticles } from "../../api";
 import ArticleList from "../Dashboard/ArticlesList";
 import SearchBar from "../Dashboard/SearchBar";
 import { Container, Header } from "semantic-ui-react";
-// import {LinkedInIcon} from '@material-ui/core';
+
 import { IconButton } from '@material-ui/core';
-// import GitHubIcon from '@material-ui/icons/GitHub';
-
-
 
 import '../../App.css';
 import '../../index.css';
-// import SignUp from "../SignUp/SignUp";
-import axios from 'axios';
 import Logo from "../Logo/Logo";
 
 class App extends React.Component {
@@ -33,8 +28,6 @@ class App extends React.Component {
 
   searchForTopic = async topic => {
     if(topic.length===0){
-
-      // this.setState({articles: "bitcoin"});
       window.alert("please enter the search bar")
       return;
 
@@ -54,33 +47,28 @@ class App extends React.Component {
   };
 
   
-   componentDidMount () {
+  componentDidMount () {
     
     if (!window.localStorage.getItem('login')) { this.props.history.push('/') }
   
-    const login = JSON.parse(window.localStorage.getItem('login'))
+    const login = JSON.parse(window.localStorage.getItem('login'));
     
-    // console.log(login.user.id)
-
-    const response =  getBitcoinArticles();
-    this.setState({ articles: response.articles });
-    // axios.get('http://localhost:7000/users/', {
-    //   headers: { 'x-auth-token': login.token }
-    // })
-    //   .then((response) => {
-    //     console.log(response);
-    //     try {
-    //       console.log(response);
-         
-    //     } catch (error) {
-    //       this.setState({ apiError: "Could not find any articles" });
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log(error.message)
-    //   })
+    const getBitcoinArticles = async () => {
+     
+      const response = await fetch(
+        `https://newsapi.org/v2/everything?q=bitcoin&sortBy=publishedAt&apiKey=${NEWS_API_KEY}`
+      );
+       const json = await response.json();
+       this.setState({
+        articles: json.articles,
+        searchTopic: "bitcoin",
+        totalResults: response.totalResults
+      });
+      return json;
+    };
+    const response = getBitcoinArticles();
+   
   }
-  
 
   render() {
     const {
@@ -98,7 +86,6 @@ class App extends React.Component {
       borderTop: "1px solid #E7E7E7",
       textAlign: "center",
       padding: "20px",
-      // position: "fixed",
       left: "0",
       bottom: "0",
       height: "150px",
@@ -107,14 +94,14 @@ class App extends React.Component {
    
     return (
       <>
-    
+      <div><Logo /></div> 
       <div className='App'>
-        
+     
      
       <Container >
-        <Logo />
+       
         
-        <Header as="h1" style={{ textAlign: "center", paddingTop: 50}}>
+        <Header as="h1" style={{ textAlign: "center", paddingTop: 50,marginTop:50}}>
           Search for a topic
         </Header>
         <SearchBar searchForTopic={this.searchForTopic} />

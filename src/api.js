@@ -13,5 +13,6 @@ export const getArticles = async topic => {
     `https://newsapi.org/v2/everything?q=${topic}&sortBy=publishedAt&apiKey=${NEWS_API_KEY}`
   );
   const json = await response.json();
+  console.log(json.articles);
   return json;
 };

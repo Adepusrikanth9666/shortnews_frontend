@@ -92,44 +92,42 @@ export default class SignUp extends Component {
 
         return(
 
-            <>
+           
         
             <div id="sign-up">
-                <div><h3>{message}</h3></div>
-                <div><h1>Sign Up </h1></div>
-                <div className="form-field">
-                    <div>Email* :</div>
-                    <TextField id="outlined-basic" label="Email" variant="outlined" type="text" name="email" value={email} onChange={this.handleChange} />
+                <div className="transbox">
+                    <div><h3>{message}</h3></div>
+                    <div><h1>Sign Up </h1></div>
+                    <div className="form-field">
+                        <div>Email* :</div>
+                        <TextField id="outlined-basic" label="Email" variant="outlined" type="text" name="email" value={email} onChange={this.handleChange} />
 
-                </div>
-                <div className="form-field">
-                    <div>Password* :</div>
-                    <TextField id="outlined-basic" label="Password" variant="outlined"  type="password" name="password" value={password} onChange={this.handleChange} />
-
-
-                </div>
-                <div className="form-field">
-                    <div>Confirm Password* :</div>
-                    <TextField id="outlined-basic" label="Confirm password" variant="outlined" type="password" name="confirmPassword" value={confirmPassword} onChange={this.handleChange} />
+                    </div>
+                    <div className="form-field">
+                        <div>Password* :</div>
+                        <TextField id="outlined-basic" label="Password" variant="outlined"  type="password" name="password" value={password} onChange={this.handleChange} />
 
 
-                </div>
-                <div className="form-field1">
-                    <div className='right-adjust' style={{marginRight:20}}><Button variant="outlined" color="primary" onClick={this.handleSubmit} onClick={() => this.props.history.push('/')} >Sign In</Button></div>
-                    <div><Button variant="outlined" color="primary" onClick={this.handleSubmit}>Submit</Button></div>
-                </div>
-                <div className="footer1" style={style}>
-                    <div className="copyRight">&copy; Copy right 2021 - Short News </div>
-                    <div className="createdBy"> Created By: Adepu Srikanth</div>
-                    <div className="follow"> follow us : <a href="https://www.linkedin.com/in/srikanth-adepu-14318617b/" >LinkedIn-SrikanthAdepu</a> </div>
+                    </div>
+                    <div className="form-field">
+                        <div>Confirm Password* :</div>
+                        <TextField id="outlined-basic" label="Confirm password" variant="outlined" type="password" name="confirmPassword" value={confirmPassword} onChange={this.handleChange} />
+
+
+                    </div>
+                    <div className="form-field12">
+                        <div className='right-adjust' style={{marginRight:20}}><Button variant="outlined" color="primary" onClick={this.handleSubmit} onClick={() => this.props.history.push('/')} >Sign In</Button></div>
+                        <div><Button variant="outlined" color="primary" onClick={this.handleSubmit}>Submit</Button></div>
+                    </div>
+                    <div className="footer1" style={style}>
+                        <div className="copyRight">&copy; Copy right 2021 - Short News </div>
+                        <div className="createdBy"> Created By: Adepu Srikanth</div>
+                        <div className="follow"> follow us : <a href="https://www.linkedin.com/in/srikanth-adepu-14318617b/" >LinkedIn-SrikanthAdepu</a> </div>
+                    </div>
+
                 </div>
                
             </div>
-
-        
-            </>
-
-
         );
     }
 
